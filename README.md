@@ -2,7 +2,7 @@
 
 Design docs for the CALIPER components and tools ⚙️
 
-https://ohsu-comp-bio.github.io/caliper-design/
+> https://ohsu-comp-bio.github.io/caliper-design/
 
 # Quick Start ⚡
 
