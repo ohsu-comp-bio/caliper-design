@@ -1,5 +1,11 @@
 site_name: CALIPER Design
-site_url: https://mydomain.org/mysite
+site_url: https://ohsu-comp-bio.github.io/caliper-design/
 theme:
   name: material
+
+nav:
+  - index.md
+  - install.md
+  - download.md
+  - upload.md
 
