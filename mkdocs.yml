@@ -1,0 +1,5 @@
+site_name: CALIPER Design
+site_url: https://mydomain.org/mysite
+theme:
+  name: material
+
