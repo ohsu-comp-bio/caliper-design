@@ -1,3 +1,7 @@
+# Build and publish site:
+#   From: `gh-pages` branch
+#   To: https://ohsu-comp-bio.github.io/caliper-design/
+# Source: https://squidfunk.github.io/mkdocs-material/publishing-your-site/
 name: ci 
 on:
   push:
