@@ -1,3 +1,6 @@
+> [!TIP]
+> Documentation can be updated by editing pages in the [docs](./docs) directory! ✍️
+
 # Overview ⚙️
 
 Design docs for the CALIPER components and tools ⚙️
