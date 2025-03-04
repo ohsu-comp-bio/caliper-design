@@ -1,11 +1,31 @@
 site_name: CALIPER Design
 site_url: https://ohsu-comp-bio.github.io/caliper-design/
+
 theme:
   name: material
+  features:
+    - navigation.indexes 
+    - navigation.footer
+    - content.code.copy
 
-nav:
-  - index.md
-  - install.md
-  - download.md
-  - upload.md
+plugins:
+  - search
 
+repo_url: https://github.com/ohsu-comp-bio/caliper-design
+repo_name: ohsu-comp-bio/caliper-design
+
+markdown_extensions:
+  - admonition
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+  - pymdownx.details
+  - toc:
+      permalink: true
+
+extra_css:
+  - stylesheets/extra.css
