@@ -1,5 +1,5 @@
 > [!TIP]
-> Documentation can be updated by editing pages in the [docs](./docs) directory! ✍️
+> Update the site by editing files in the [docs](./docs) directory! ✍️
 
 # Overview ⚙️
 
