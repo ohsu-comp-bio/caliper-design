@@ -2,20 +2,18 @@
 
 Design docs for the CALIPER components and tools ⚙️
 
-> https://ohsu-comp-bio.github.io/caliper-design/
+> https://ohsu-comp-bio.github.io/caliper-design
 
 # Quick Start ⚡
 
 ```sh
-➜ git@github.com:ohsu-comp-bio/caliper-design.git
+python3 -m venv && source venv/bin/activate
 
-➜ cd caliper-design
+pip install mkdocs-material
 
-➜ python3 -m venv && source venv/bin/activate
-
-# Localhost
-➜ mkdocs serve
+# Run locally at http://localhost:8000
+mkdocs serve
 
 # Push to GitHub Pages
-➜ mkdocs gh-deploy
+mkdocs gh-deploy
 ```
