@@ -10,9 +10,9 @@ Design docs for the CALIPER components and tools ⚙️
 ## Quick Start ⚡
 
 ```sh
-python3 -m venv && source venv/bin/activate
+python3 -m venv venv && source venv/bin/activate
 
-pip install mkdocs-material
+pip install -r requirements.txt
 
 # Run locally at http://localhost:8000
 mkdocs serve
