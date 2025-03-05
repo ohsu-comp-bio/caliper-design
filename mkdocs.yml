@@ -10,6 +10,7 @@ theme:
 
 plugins:
   - search
+  - open-in-new-tab # automatically open ext links in new tab
 
 repo_url: https://github.com/ohsu-comp-bio/caliper-design
 repo_name: ohsu-comp-bio/caliper-design
@@ -26,6 +27,9 @@ markdown_extensions:
   - pymdownx.details
   - toc:
       permalink: true
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
 
 extra_css:
   - stylesheets/extra.css
