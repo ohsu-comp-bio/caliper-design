@@ -31,6 +31,7 @@ mkdocs gh-deploy
 - [git](https://git-scm.com/): Free and open source distributed version control system 
 - [git-lfs](https://git-lfs.com/): Git Large File Storage — An open source Git extension for versioning large files
 - [dvc](https://dvc.org/): Data Version Control
+- [Pandas](https://pandas.pydata.org/docs/getting_started/intro_tutorials/01_table_oriented.html): Flexible and powerful data analysis / manipulation library
 
 ## TODO 🌀
 
