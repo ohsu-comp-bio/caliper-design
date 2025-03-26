@@ -70,10 +70,12 @@ Same as adding files above except `g3t push --overwrite` to overwrite existing D
 ## Upload FHIR metadata
 
 ## Users can *iteratively* upload local files and see basic file metadata populate in the Explorer.
-    - **First submission**: `g3t collaborators approve` [admin side] → `init aced-myproject` → `add file.txt --patient patient_1` → **`meta init`** → `commit` → **`push`**
-    - **Add new files**: `g3t add new_file.txt` → `g3t meta init` → `git add META/` → `g3t commit -am "add new file"` → `g3t push`
-    - **Modify existing file**: same as above but `g3t push **—overwrite**`
+
+- **First submission**: `g3t collaborators approve` [admin side] → `init aced-myproject` → `add file.txt --patient patient_1` → **`meta init`** → `commit` → **`push`**
+- **Add new files**: `g3t add new_file.txt` → `g3t meta init` → `git add META/` → `g3t commit -am "add new file"` → `g3t push`
+- **Modify existing file**: same as above but `g3t push **—overwrite**`
   
 ## Users can upload remote files and see their basic metadata populated in the Explorer
-    - **First submission**: same as above, but
+
+- **First submission**: same as above, but
 - Existing: user can upload metadata pre-generated And see those changes in a Tabular format on the Explorer page

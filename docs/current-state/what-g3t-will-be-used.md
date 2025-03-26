@@ -18,12 +18,59 @@ As an Evotypes collaborator, I want to transfer files from the Cambridge head no
 - Manual tracking of files that have been transferred over (combo of spreadsheets and looking at the state of the bucket)
 
 **Problems encountered**
-*cannot do = bugfix of functionality; difficult to do = rework of docs/functionality + guardrails*
+
+*cannot do* = no functionality exists in g3t, workarounds needed
+
+*difficult to do* = rework of docs/functionality + guardrails
+
 - [Cannot do] Unable to upload files in parallel using gen3
 - [Cannot do] unable to push to production external (ACED-IDP)
 - [difficult to do] Unable to add -> meta init -> push for the same project (push --overwrite adds all the files, so if push fails how to reupload just the one file)
 
+See the below example workflow for uploading files to OHSU bucket (ACED production)
+```sh
+mkdir aced-evotypes_transfer
+cd aced-evotypes_transfer
+conda activate gen3_transfer
+
+g3t init aced-evotypes_transfer
+
+g3t add <FILE>
+g3t add <FILE> 
+g3t add <FILE>
+
+# generate manifest file
+g3t meta init
+git add META && git commit -m "add META and cambridge files"
+g3t push --overwrite
+
+ctrl + c  #cancel once upload starts
+
+# split manifest file into multiple json files (1 object per file)
+cd .g3t/work
+
+for i in $(seq $(jq '.|length' manifest-20250304205905.json)); do \
+    j=$( expr $i - 1 ); \
+    jq ".[$j]" manifest-20250304205905.json > $j.json;  \
+done
+
+# upload files via gen3-client (can upload multiple files at the same time)
+tmux new -s mySession14
+conda activate gen3_transfer
+gen3-client upload-multiple --manifest /rds/project/rds-DNda7MnDzRs/evotypes/iq_transfer/aced-evotypes_transfer/.g3t/work/14.json --profile aced --upload-path /rds/project/rds-DNda7MnDzRs/evotypes/iq_transfer/aced-evotypes_transfer/ --bucket aced-ohsu-production --numparallel 75
+
+#mySession24 LP6008340-DNA_E03.bam
+tmux new -s mySession24
+conda activate gen3_transfer
+gen3-client upload-multiple --manifest /rds/project/rds-DNda7MnDzRs/evotypes/iq_transfer/aced-evotypes_transfer/.g3t/work/24.json --profile aced --upload-path /rds/project/rds-DNda7MnDzRs/evotypes/iq_transfer/aced-evotypes_transfer/ --bucket aced-ohsu-production --numparallel 75
+
+#mySession34 LP6008340-DNA_H05.bam
+tmux new -s mySession34
+conda activate gen3_transfer
+gen3-client upload-multiple --manifest /rds/project/rds-DNda7MnDzRs/evotypes/iq_transfer/aced-evotypes_transfer/.g3t/work/34.json --profile aced --upload-path /rds/project/rds-DNda7MnDzRs/evotypes/iq_transfer/aced-evotypes_transfer/ --bucket aced-ohsu-production --numparallel 75
+```
+
 **Improvements to Make**
 - Resolve projects 
 - resolve existing problems with upload to (waiting on exact error)
-- - Spec out the use case for uploading files in parallel -> 
+- Spec out the use case for uploading files in parallel -> 
